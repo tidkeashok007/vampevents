@@ -1,0 +1,50 @@
+<============Django============>
+D-jango realse 21 july 2005
+
+python framework
+MVT-model view template
+django-admin provide admin dashboard
+port 127.0.0.1:80000
+model- act as a interface of ur db
+view- user interface like html css js jinja2
+template- 
+WSGI- web server getway interface
+
+
+<---------cmd--------->
+py -m venv myvenv 
+myvenv\Scripts\activate  
+python -m pip install django
+python.exe -m pip install --upgrade pip
+
+django-admin startproject first_project
+python manage.py stratapp first_app
+python manage.py runserver
+
+
+
+
+<---------setings.py---------->
+->  add installed apps 
+->  template-> 'DIRS': [BASE_DIR, 'TEMPLATES'], <-template folder name
+->  installed app->'first_project'  <- mention your project name
+<------------------------------------------------------->
+
+
+<=================urls======================>
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+]
+<==============================================>
+
+
+
+<==================views===============>
+from django.shortcuts import render
+
+def index(request):
+    return render(request, 'index.html')
+<======================================>

@@ -1,0 +1,74 @@
+
+{% extends 'shop/base.html' %}
+
+{% block title%} About Us{% endblock %}
+{% block nav-links %}
+<li class="nav-item">
+  <a class="nav-link" href="/shop/home">Home</a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="/shop/tracker">Tracker</a>
+</li>
+
+<li class="nav-item active">
+  <a class="nav-link" href="/shop/about">About Us<span class="sr-only">(current)</span></a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="/shop/contact">Contact Me</a>
+</li>
+{% endblock %}
+{% block body %}
+
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Vamp Events!</h1>
+      <p>
+        This Python Django project is an online shopping website. It utilizes Django's powerful features, 
+        including Models and ORM for the SQLite database, Views and URL routing for handling requests, 
+        Templates for dynamic HTML pages, Forms and Validation for user input, Authentication and Authorization 
+        for secure access, and Django Admin for backend management. The project offers a seamless shopping experience 
+        while leveraging SQLite for efficient data storage and retrieval.</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-4">
+        <h2>Django Admin</h2>
+        <p>The Django Admin interface is utilized to manage the e-commerce website's backend. It provides an intuitive administration panel to perform tasks such as adding , deleting or updating products </p>
+      </div>
+      <div class="col-md-4">
+        <h2>Authentication and Authorization</h2>
+        <p>Django's built-in authentication system is employed to handle user registration, login, and logout functionalities. User authentication ensures secure access to user-specific features and protects sensitive information. </p>
+      </div>
+      <div class="col-md-4">
+        <h2>Templates</h2>
+        <p>Django's template engine is employed to create dynamic HTML pages, facilitating the rendering of data from the backend to the frontend. This allows for the display of product listings, shopping cart contents, and order details in a visually appealing manner.</p>
+      </div>
+      <div class="col-md-4">
+        <h2>Static and Media Files</h2>
+        <p> Django manages static files, such as CSS and JavaScript, to enhance the website's appearance and functionality. It also handles media files, including product images, allowing them to be uploaded and served efficiently.</p>
+      </div>
+      <div class="col-md-4">
+        <h2>Models and ORM</h2>
+        <p> Django's ORM(Object-Relational Mapping) is used to define the database structure and interact with the SQLite database. It provides a convenient way to create, retrieve, update, and delete records, allowing seamless integration with the e-commerce website.</p>
+      </div>
+      <div class="col-md-4">
+        <h2>Paytm Payment Integration</h2>
+        <p> Integrated the Paytm payment gateway, which involved implementing various payment options for seamless and secure transactions. The primary objective was to enhance the user experience by providing a reliable and widely used payment solution.</p>
+      </div>
+    </div>
+
+    <hr>
+
+  </div> <!-- /container -->
+
+</main>
+
+{% endblock %}

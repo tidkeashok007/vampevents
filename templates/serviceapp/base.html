@@ -1,0 +1,214 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+       <link rel="icon" href="{% static 'vamp_services/images/logo.png' %}">
+        <title>VampEvents | Services | {% block title %}{% endblock title %}</title>
+
+  <!-- Mobile Specific Meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- Custom Fonts -->
+  <link rel="stylesheet" href="{% static 'vamp_services/custom-font/fonts.css' %}" />
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'vamp_services/css/bootstrap.min.css' %}" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'vamp_services/css/font-awesome.min.css' %}" />
+  <!-- Bootsnav -->
+  <link rel="stylesheet" href="{% static 'vamp_services/css/bootsnav.css' %}">
+  <!-- Fancybox -->
+  <link rel="stylesheet" type="text/css" href="{% static 'vamp_services/css/jquery.fancybox.css?v=2.1.5' %}" media="screen" />
+  
+  <link href="{% static 'vamp_app/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <!--[if lt IE 9]>
+      
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="{% static 'vamp_services/css/sale.css' %}">
+</head>
+<body>
+  <!-- Preloader -->
+
+  <!-- <div id="loading">
+    <div id="loading-center">
+        <div id="loading-center-absolute">
+            <div class="object"></div>
+            <div class="object"></div>
+            <div class="object"></div>
+            <div class="object"></div>
+            <div class="object"></div>
+            <div class="object"></div>
+            <div class="object"></div>
+            <div class="object"></div>
+            <div class="object"></div>
+            <div class="object"></div>
+        </div>
+    </div>
+</div> -->
+     <!-- Header -->
+  <header>
+     <!-- Top Navbar -->
+     <div class="top_nav">
+         <div class="container">
+           <ul class="list-inline info">
+             <li><a href="#"><span class="fa fa-phone"></span> +91 00000 00000</a></li>
+             <li><a href="mailto:vampevents@gmail.com" target="_blank"><span class="fa fa-envelope"></span> vampevents@gmail.com</a></li>
+             <li><a href="#"><span class="fa fa-clock-o"></span> Mon - Sat 9:00 - 19:00</a></li>
+         </ul>
+             <ul class="list-inline social_icon">
+               <li><a href="https://www.twitter.com/" target="_blank"><span class="fa fa-twitter"></span></a></li>
+               <li><a href="https://www.facebook.com/" target="_blank"><span class="fa fa-facebook"></span></a></li>
+               <li><a href="https://www.instagram.com/" target="_blank"><span class="fa fa-instagram"></span></a></li>
+               <li><a href="https://www.skype.com/" target="_blank"><span class="fa fa-skype"></span></a></li>
+               <li><a href="https://www.linkedin.com/" target="_blank"><span class="fa fa-linkedin"></span></a></li>
+               <li><a href="https://www.youtube.com/" target="_blank"><span class="fa fa-youtube"></span></a></li>
+               &nbsp;
+               &nbsp;
+               &nbsp;
+               &nbsp;
+               &nbsp;
+               &nbsp;
+               &nbsp;
+               <li id="date"></li>
+           </ul>		
+         </div>
+     </div><!-- Top Navbar end -->
+ 
+     <!-- Navbar -->
+     <nav class="navbar bootsnav">
+         <!-- Top Search -->
+         <div class="top-search">
+             <div class="container">
+                 <div class="input-group">
+                     <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                     <input type="text" class="form-control" placeholder="Search">
+                     <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+                 </div>
+             </div>
+         </div>
+ 
+         <div class="container">
+             <!-- Atribute Navigation -->
+             <!-- Header Navigation -->
+             <div class="navbar-header">
+                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                     <i class="fa fa-bars"></i>
+                 </button>
+                 <a class="navbar-brand" href=""><img class="logo"  height="100PX" width="0PX"  src="{% static 'vamp_services/img/logo-head.png' %}" alt="logo"></a>
+             </div>
+             <!-- Navigation -->
+             <div class="collapse navbar-collapse" id="navbar-menu">
+                 <ul class="nav navbar-nav menu">
+                   <li>
+                     <a href="/">
+                         <div class="d-flex align-items-center"> 
+                           Home
+                         </div>
+                     </a>
+                 </li>
+                 <li>
+                  <a  href="/#services" class="active">
+                      <div class="d-flex align-items-center "> 
+                        Services
+                      </div>
+                  </a>
+              </li>
+                 <li>
+                  <a href="{% url 'login' %}">
+                      <div class="d-flex align-items-center"> 
+                        Login
+                      </div>
+                  </a>
+              </li>
+              <li>
+                <a href="{% url 'login' %}">
+                    <div class="d-flex align-items-center"> 
+                      SignUp
+                    </div>
+                </a>
+            </li>
+                 </ul>
+             </div>
+         </div>   
+     </nav><!-- Navbar end -->
+ </header><!-- Header end -->
+
+ <div class="main">
+  {% block main-content %}{% endblock main-content %}
+ </div>
+
+
+ <!-- ======= Footer ======= -->
+<footer class="mt-5" id="footer" style="background-image: url('{% static "vamp_app/img/background.jpg" %}')">
+
+  <div class="footer-top">
+
+    <div class="container">
+
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <a href="" class=" footer-logo"><img style="height:250px; width:360px;" src="{% static 'vamp_app/img/logos/01.png' %}" alt=""></a>
+          
+        </div>
+
+        <div class="col-lg-6">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3913.1441904676844!2d75.80827117500768!3d11.250801550264788!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba65b33e2355ed7%3A0x69d4c36ebc06ea40!2sNSTI%20Calicut(National%20Skill%20Training%20Institute%20Calicut)!5e0!3m2!1sen!2sin!4v1688461912040!5m2!1sen!2sin" frameborder="0" style="display: block; width: 360px; height: 250px;"></iframe>
+        </div>
+      </div>
+    </div>
+  <div class="container footer-bottom clearfix">
+    <div class="copyright">
+      &copy; Copyright <strong><span>VampEvents</span></strong>. All Rights Reserved
+    </div>
+    <div class="credits">
+      Designed by <a href="">MilePost</a>
+    </div>
+    <div class="social-links">
+      <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+      <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+      <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+      <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+      <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+      <a href="#" class="youtube"><i class="bx bxl-youtube"></i></a>
+    </div>
+  </div>
+</footer><!-- End Footer -->
+
+
+     <!-- JavaScript -->
+     <script src="{% static 'vamp_services/js/jquery-1.12.1.min.js' %}"></script>
+     <script src="{% static 'vamp_services/js/bootstrap.min.js' %}"></script>
+   
+     <!-- Bootsnav js -->
+     <script src="{% static 'vamp_services/js/bootsnav.js' %}"></script>
+
+     <!-- JS Implementing Plugins -->
+     <script src="{% static 'vamp_services/js/isotope.js' %}"></script>
+     <script src="{% static 'vamp_services/js/isotope-active.js' %}"></script>
+     <script src="{% static 'vamp_services/js/jquery.fancybox.js?v=2.1.5' %}"></script>
+     <script src="{% static 'vamp_services/js/jquery.scrollUp.min.js' %}"></script>
+     <script src="{% static 'vamp_services/js/main.js' %}"></script>
+
+     <!-- header live date script -->
+   <script>
+    // Function to update the date and time
+    function updateDateTime() {
+        // Create a new Date object
+        var currentDate = new Date();
+  
+        // Get the date and time components
+        var date = currentDate.toLocaleDateString();
+        var time = currentDate.toLocaleTimeString();
+  
+        // Display the date and time
+        document.getElementById("date").textContent = "Date: " + date + " Time: " + time;
+    }
+  
+    // Call the updateDateTime function immediately to display the initial date and time
+    updateDateTime();
+  
+    // Call the updateDateTime function every second (1000 milliseconds) to update the date and time
+    setInterval(updateDateTime, 1000);
+  </script>
+   </body>
+   </html>

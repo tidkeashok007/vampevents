@@ -1,0 +1,68 @@
+{% extends 'serviceapp/base.html' %}
+{% load static %}
+{% block title %}Capture-Me{% endblock title %}
+
+{% block main-content %}
+<div class="main">
+  <section id="team" class="team" style="background-image: url('{% static "vamp_services/img/services-bg.jpg" %}')">
+    <div class="container">
+      <div>
+        <h5 class="text-primary">Capture-Me -></h5>
+      </div>
+      <br>
+      <div class="row">
+        {% for i in photography %}
+  <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+    <div class="member" data-aos="fade-up" data-aos-delay="300">
+      <div class="member-img">
+        <img src="{{ i.image.url }}" height="350px" class="img-fluid" alt="hello">
+        <div class="social">
+          <h5 style="color:white;">Click here for more info</h5>
+          <button type="button" class="btn btn-success float-end" data-toggle="modal" data-target="#Property-{{i.id}}">More Info</button>
+        </div>
+      </div>
+      <div class="member-info">
+        <h4>Product Name: {{i.product_name}}</h4>
+        <h6>Description: {{i.desc}}</h6>
+        <p class="price">₹{{i.price}}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="Property-{{i.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <h2 class="text-center mb-4">Product Details</h2>
+          <div>
+            <img src="{{ i.image.url }}" height="350px" alt="hello">
+            <h4>Product Name: {{i.product_name}}</h4>
+            <h4>Product Category: {{i.category}}</h4>
+            <h6>Description: {{i.desc}}</h6>
+            <p class="price">₹{{i.price}}</p>
+          </div>
+          <div>
+            <h5>Description</h5>
+            <p>For more information about the product, please send us the Project Code through the WhatsApp Chat given below.</p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <a href="#"><button type="button" class="btn btn-success">Book Now</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+      </div>
+      
+
+    </div>
+  </section><!-- End Team Section -->
+</main><!-- End #main -->
+{% endblock main-content %}

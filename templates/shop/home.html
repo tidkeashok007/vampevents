@@ -1,0 +1,132 @@
+{% extends 'shop/base.html' %}
+{% block title%} Home {% endblock %}
+{% block nav-links %}
+<li class="nav-item active">
+  <a class="nav-link" href="/shop/home">Home <span class="sr-only">(current)</span></a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="/shop/tracker">Tracker</a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="/shop/about">About Us</a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="/shop/contact">Contact Me</a>
+</li>
+{% endblock %}
+{% block css %}
+.col-md-3 {
+display: inline-block;
+margin-left: -4px;
+width: 25%;
+}
+
+.carousel-indicators .active {
+background-color: blue;
+}
+
+.col-md-3 img {
+width: 100%;
+height: 240px; /* Adjust the desired height for the carousel cards */
+object-fit: cover; /* Maintain aspect ratio and fill the container */
+}
+
+body .carousel-indicator li {
+background-color: blue;
+}
+
+body .carousel-indicators {
+bottom: -40px;
+}
+
+body .carousel-control-prev-icon,
+body .carousel-control-next-icon {
+background-color: blue;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+top: auto;
+bottom: auto;
+padding-top: 222px;
+}
+
+body .no-padding {
+padding-left: 0;
+padding-right: 0;
+}
+{% endblock %}
+
+
+
+{% block body %}
+{% for message in messages %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  <strong>Welcome </strong> {{ message }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+
+<div class="container">
+  <!--Slideshow starts here -->
+  {% for product, range, nSlides in list %}
+  <h2 class='my-4'>{{product.0.category}}</h2>
+  <div class="row">
+    <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
+      <ul class="carousel-indicators">
+        <li data-target="#demo{{forloop.counter}}" data-slide-to="0" class="active"></li>
+        {% for i in range %}
+        <li data-target="#demo{{forloop.parentloop.counter}}" data-slide-to="{{i}}"></li>
+        {% endfor %}
+      </ul>
+
+      <div class="container carousel-inner no-padding">
+        <div class="carousel-item active">
+          {% for i in product %}
+          <div class="col-xs-3 col-sm-3 col-md-3">
+            <div class="card align-items-center" style="width: 18rem;">
+              <img src='/media/{{i.image}}' class="card-img-top" alt="...">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h5 class="card-title text-truncate" id="namepr{{i.id}}">{{i.product_name}}</h5>
+                  </div>
+                  <div class="col">
+                    <h5 class="text-end">Rs.<span id="pricepr{{i.id}}">{{i.price}}</span></h5>
+                  </div>
+                </div>
+                <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
+                <span id="divpr{{i.id}}" class="divpr">
+                  <button id="pr{{i.id}}" class="btn btn-outline-primary cart">Add To Cart</button>
+                </span>
+                <a href="/shop/products/{{i.id}}"><button id="qv{{i.id}}"
+                    class="mx-2 btn btn-outline-primary cart">Quick Veiw</button></a>
+              </div>
+            </div>
+          </div>
+          {% if forloop.counter|divisibleby:4 and not forloop.last %}
+        </div>
+        <div class="carousel-item">
+          {% endif %}
+
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <!-- left and right controls for the slide -->
+    <a class="carousel-control-prev" href="#demo{{forloop.counter}}" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo{{forloop.counter}}" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+  </div>
+  </a>
+
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'shop/base.html' %}
+{% block title%} Product View-AFH{% endblock %}
+
+{% block body %}
+<body style="background-color:#87CEFA;">
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="row">
+                <img src="/media/{{ products.image }}" width="233px" height="385px">
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <h4>{{ products.product_name }}</h4><br>
+            <h5>Type: {{ products.category }}</h5><br>
+            <h5>Date Published: {{ products.pub_date }}</h5><br>
+            <h5><b>Rs.{{ products.price }} </b></h5><br>
+            <p><b>Description : </b>{{ products.desc }}</p>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}

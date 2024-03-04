@@ -1,0 +1,135 @@
+{% extends 'shop/base.html' %}
+{% block title%} Contact {% endblock %}
+{% block nav-links %}
+<li class="nav-item">
+  <a class="nav-link" href="/shop/home">Home</a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="/shop/tracker">Tracker</a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="/shop/about">About Us</a>
+</li>
+
+<li class="nav-item active">
+  <a class="nav-link" href="/shop/contact">Contact Me<span class="sr-only">(current)</span></a>
+</li>
+{% endblock %}
+
+{% block body %}
+<!--Section: Contact v.2-->
+<div class = "container">
+<section class="mb-4">
+
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact me</h2>
+    <!--Section description-->
+    <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact me directly.</p>
+
+    <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-9 mb-md-0 mb-5">
+            <form method="POST" action="/shop/contact/" name = "submitform" id = "submitform">
+                {% csrf_token %}
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <label for="name">Your name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter Your Name">
+                            
+                        </div>
+                    </div>
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <label for="email">Your email</label>
+                            <input type="text" id="email" name="email" class="form-control" placeholder="Enter Your Email">
+                            
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="md-form mb-0">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Enter the subject">
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-12">
+
+                        <div class="md-form">
+                            <label for="message">Your message</label>
+                            <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Grid row-->
+                <div class="text-center text-md-left mb-5">
+                    <button type="submit" class="btn btn-success my-3">Submit</button>
+                </div>
+            </form>
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-3 text-center mb-5">
+            <ul class="list-unstyled mb-0">
+                <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                    <p>Calicut, KR 673016, IN</p>
+                </li>
+
+                <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                    <p>+91 00000 00000</p>
+                </li>
+
+                <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                    <p>vamphub.support@gmail.com</p>
+                </li>
+            </ul>
+        </div>
+        <!--Grid column-->
+
+    </div>
+</div>
+</section>
+
+{% endblock %}
+
+{% block js %}
+<script>
+    $(document).ready(function() {
+        // Target the form by its ID and listen for the submit event
+        $('#submitform').submit(function(event) {
+          event.preventDefault(); // Prevent the default form submission
+  
+          // Show an alert
+          alert("Thank you for filling out form! We will reach back to you soon.");
+  
+          // You can perform additional actions here, like sending the form data to a server using AJAX
+  
+          // Optionally, you can reset the form
+          $(this)[0].reset();
+        });
+      });
+    </script>
+{% endblock %}
